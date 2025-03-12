@@ -1,6 +1,6 @@
 {
   "name": "@iprog/test",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "tests for dh2642",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,13 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kth-csc-iprog/unit-tests"
+  },
+  "devDependencies": {
+    "vitest": "latest",
+    "@testing-library/vue": "latest",
+    "@testing-library/react": "latest",
+    "@testing-library/jest-dom": "latest",
+    "jsdom":"latest"
   },
   "author": "",
   "license": "UNLICENSED"
