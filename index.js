@@ -10,4 +10,19 @@ export function customEventWrap(component, customEventStatus){
         }
       }));
     }
+  }
+
+export function solved(x){
+  const slash= x.lastIndexOf("/")+1;
+  return x.substring(0,slash)+"solved-"+x.substring(slash);
+}
+export async function getModule(x){
+  try{
+    return await import(solved(x))
+  }catch(e){console.error(e)}
+  
+  try {
+    return await import(x)
+  }catch(e){}
+  return null; 
 }

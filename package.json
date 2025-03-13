@@ -3,15 +3,17 @@
   "version": "0.0.6",
   "description": "tests for dh2642",
   "main": "index.js",
+  "type":"module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/kth-csc-iprog/unit-tests"
   },
-  "devDependencies": {
+  "devDependencies": {  
     "vitest": "latest",
+    "mobx":"latest",
     "@testing-library/vue": "latest",
     "@testing-library/react": "latest",
     "@testing-library/jest-dom": "latest",
