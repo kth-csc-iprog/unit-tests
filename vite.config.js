@@ -6,12 +6,10 @@ export default defineConfig(function(params){
         environment: "jsdom",
     },
     resolve:{
-        alias: [
-            {
-            find:"/src/teacherFetch.js",
-            replacement: "/test/empty.js"
-            },
-        ]
+        alias: ["./teacherFetch", "./teacherFetch.js", "./teacherFetch.ts",
+		"/src/teacherFetch",  "/src/teacherFetch.js", "/src/teacherFetch.ts"]
+	    .map(find=>({find, replacement :"/test/empty.js"}))
+
     }
     }
 })
