@@ -1,17 +1,25 @@
 import { vi } from "vitest";
+import {getModule} from "/index"
 
 const model= {
     doSearch(){},
     currentDishEffect(){},
 }
 
-function modl(){ return {model}}
+function modl(importOriginal){ return {
+    model,
+    getOriginal(){ return getModule("/src/DinnerModel", importOriginal);},
+}}
 
 vi.mock("/src/DinnerModel", modl)
 vi.mock("/src/solved-DinnerModel", modl)
 
-function  ctp(){
+vi.mock("firebase/app")
+vi.mock("firebase/firestore")
+
+function  ctp(importOriginal){
     return {
+	getOriginal(){ return getModule("/src/firestoreModel", importOriginal);},
         connectToPersistence(){}
     }  
 }
@@ -86,4 +94,4 @@ const reactBootstrap= Object.values(import.meta.glob("/src/reactjs/solved-index.
       || Object.values(import.meta.glob("/src/reactjs/index.*sx"))[0];
 const nativeBootstrap= Object.values(import.meta.glob("/src/bootstrapping.*s"))[0];
 
-export {model, vueBootstrap, reactBootstrap, nativeBootstrap}
+export {vueBootstrap, reactBootstrap, nativeBootstrap}

@@ -16,13 +16,13 @@ export function solved(x){
   const slash= x.lastIndexOf("/")+1;
   return x.substring(0,slash)+"solved-"+x.substring(slash);
 }
-export async function getModule(x){
+export async function getModule(x, importer){
   try{
-    return await import(solved(x))
+      return importer?await importer(solved(x)):await import(solved(x))
   }catch(e){console.error(e)}
   
   try {
-    return await import(x)
+      return importer?await importer(x):await import(x)
   }catch(e){}
   return null; 
 }
