@@ -2,7 +2,7 @@ import { expect, test, vi } from "vitest"
 
 import { getModule } from "../index"
 
-import {model} from "./bootstrapMocks.js"
+const model= (await getModule("/src/DinnerModel.js")).model;  // mocked
 
 import {vueBootstrap} from "./bootstrapMocks.js"
 if (vueBootstrap)
