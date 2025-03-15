@@ -1,15 +1,14 @@
 {
   "name": "@iprog/test",
-  "version": "0.0.8",
+  "version": "0.0.14",
   "description": "tests for dh2642",
   "main": "index.js",
-  "type":"module",
   "scripts": {
     "test": "vitest"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/kth-csc-iprog/unit-tests"
+    "url": "https://gits-15.sys.kth.se/iprog/iprog-test"
   },
   "devDependencies": {  
     "vitest": "latest",

@@ -2,15 +2,15 @@ import { expect, test, vi } from "vitest"
 
 import { getModule } from "../index"
 
-const model= (await getModule("/src/DinnerModel.js")).model;  // mocked
+const model= (await getModule("/src/DinnerModel.js"))?.model;  // mocked
 
 import {vueBootstrap} from "./bootstrapMocks.js"
 if (vueBootstrap)
     test("bootstrap Vue", async function (test) {
         const vue= await import("vue")
-        const VueRoot = vi.spyOn(await getModule("/src/vuejs/VueRoot"), "VueRoot")
         const reactive = vi.spyOn(vue, "reactive")
         const createApp = vi.spyOn(vue, "createApp")
+        const VueRoot = vi.spyOn(await getModule("/src/vuejs/VueRoot"), "VueRoot")
 
         // run the bootstrapping
         await vueBootstrap();
@@ -92,3 +92,6 @@ if(nativeBootstrap)
 
 	expect(ret.reactiveModel).toBe(reactiveModel)
     })
+
+if(!nativeBootstrap && !vueBootstrap && !reactBootstrap)
+    test("no bootstrapping found", function(t){ t.skip()})

@@ -1,5 +1,5 @@
 import { vi } from "vitest";
-import {getModule} from "/index"
+import {getModule} from "../index"
 
 const model= {
     doSearch(){},

@@ -19,7 +19,7 @@ export function solved(x){
 export async function getModule(x, importer){
   try{
       return importer?await importer(solved(x)):await import(solved(x))
-  }catch(e){console.error(e)}
+  }catch(e){}
   
   try {
       return importer?await importer(x):await import(x)
